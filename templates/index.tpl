@@ -13,9 +13,9 @@
     </script>
     <div id="importExportTabs" class="pkp_controllers_tab">
         <ul>
-            <li><a href="#queue-tab">{translate key="plugins.importexport.crossref.queued"}</a></li>
-            <li><a href="#deposited-tab">{translate key="plugins.importexport.crossref.deposited"}</a></li>
-            <li><a href="#settings-tab">{translate key="plugins.importexport.crossref.settings"}</a></li>
+            <li><a href="#queue-tab">{translate key="plugins.importexport.crossrefOmp.queued"}</a></li>
+            <li><a href="#deposited-tab">{translate key="plugins.importexport.crossrefOmp.deposited"}</a></li>
+            <li><a href="#settings-tab">{translate key="plugins.importexport.crossrefOmp.settings"}</a></li>
         </ul>
         <div id="settings-tab">
             <script type="text/javascript">
@@ -33,16 +33,16 @@
                     {/fbvFormArea}
                 {/if}
                 {fbvFormArea id="crossrefSettingsFormArea"}
-                    <p class="pkp_help">{translate key="plugins.importexport.crossref.settings.description"}</p>
-                    <p class="pkp_help">{translate key="plugins.importexport.crossref.intro"}</p>
+                    <p class="pkp_help">{translate key="plugins.importexport.crossrefOmp.settings.description"}</p>
+                    <p class="pkp_help">{translate key="plugins.importexport.crossrefOmp.intro"}</p>
                 {fbvFormSection}
-                {fbvElement type="text" id="username" value=$username label="plugins.importexport.crossref.settings.form.username" maxlength="50" size=$fbvStyles.size.MEDIUM}
-                {fbvElement type="text" password="true" id="password" value=$password label="plugins.importexport.crossref.settings.form.password" maxLength="50" size=$fbvStyles.size.MEDIUM}
-                    <span class="instruct">{translate key="plugins.importexport.crossref.settings.form.password.description"}</span>
+                {fbvElement type="text" id="username" value=$username label="plugins.importexport.crossrefOmp.settings.form.username" maxlength="50" size=$fbvStyles.size.MEDIUM}
+                {fbvElement type="text" password="true" id="password" value=$password label="plugins.importexport.crossrefOmp.settings.form.password" maxLength="50" size=$fbvStyles.size.MEDIUM}
+                    <span class="instruct">{translate key="plugins.importexport.crossrefOmp.settings.form.password.description"}</span>
                     <br/>
                 {/fbvFormSection}
                 {fbvFormSection list="true"}
-                {fbvElement type="checkbox" id="testMode" label="plugins.importexport.crossref.settings.form.testMode.description" checked=$testMode|compare:true}
+                {fbvElement type="checkbox" id="testMode" label="plugins.importexport.crossrefOmp.settings.form.testMode.description" checked=$testMode|compare:true}
                 {/fbvFormSection}
                 {/fbvFormArea}
                 {fbvFormButtons submitText="common.save"}
@@ -63,7 +63,7 @@
                                 <div class="pkpListPanel__content pkpListPanel__content--submissions">
                                     <div class="header">
                                         <h4>
-                                            {translate key="plugins.importexport.crossref.monographsOrChapter"}
+                                            {translate key="plugins.importexport.crossrefOmp.monographsOrChapter"}
                                         </h4>
                                     </div>
                                     <table aria-live="polite" class="pkpListPanel__items">
@@ -102,7 +102,7 @@
                                                                 {$item["title"]}<br />
                                                                 DOI: {$item["pubId"]}<br />
                                                                 {if $item["chapterPubIds"]}
-                                                                    {translate key="plugins.importexport.crossref.chapterDoiCount"}:  {$item["chapterPubIds"]|count}
+                                                                    {translate key="plugins.importexport.crossrefOmp.chapterDoiCount"}:  {$item["chapterPubIds"]|count}
                                                                 {/if}
                                                             </div>
                                                             <div class="pkpListPanelItem--submission__activity">
@@ -123,12 +123,12 @@
                                                                 {if !$item["errors"]}                                                        
                                                                 <button class="pkpBadge pkpBadge--button pkpBadge--dot">
                                                                     <a href="{$plugin}/export?submission={$item["id"]}" class="">
-                                                                        {translate key="plugins.importexport.crossref.export"}
+                                                                        {translate key="plugins.importexport.crossrefOmp.export"}
                                                                     </a>
                                                                 </button> 
                                                                 <button class="pkpBadge pkpBadge--button pkpBadge--dot">
                                                                     <a href="{$plugin}/deposit?submission={$item["id"]}" class="">
-                                                                        {translate key="plugins.importexport.crossref.deposit"}
+                                                                        {translate key="plugins.importexport.crossrefOmp.deposit"}
                                                                     </a>
                                                                 </button>
                                                                 {/if} 
@@ -169,7 +169,7 @@
                                 <div class="pkpListPanel__content pkpListPanel__content--submissions">
                                     <div class="header">
                                         <h4>
-                                            {translate key="plugins.importexport.crossref.deposited"}
+                                            {translate key="plugins.importexport.crossrefOmp.deposited"}
                                         </h4>
                                     </div>
                                     <table aria-live="polite" class="pkpListPanel__items">
@@ -208,7 +208,7 @@
                                                                 {$item["title"]}<br />
                                                                 DOI: {$item["pubId"]}<br />
                                                                 {if $item["chapterPubIds"]}
-                                                                    {translate key="plugins.importexport.crossref.chapterDoiCount"}:  {$item["chapterPubIds"]|count}
+                                                                    {translate key="plugins.importexport.crossrefOmp.chapterDoiCount"}:  {$item["chapterPubIds"]|count}
                                                                 {/if}
                                                             </div>
                                                             <div class="pkpListPanelItem--submission__activity">
@@ -229,12 +229,12 @@
                                                                 {if !$item["errors"]}                                                  
                                                                 <button class="pkpBadge pkpBadge--button pkpBadge--dot">
                                                                     <a href="{$plugin}/export?submission={$item["id"]}" class="">
-                                                                        {translate key="plugins.importexport.crossref.export"}
+                                                                        {translate key="plugins.importexport.crossrefOmp.export"}
                                                                     </a>
                                                                 </button> 
                                                                 <button class="pkpBadge pkpBadge--button pkpBadge--dot">
                                                                     <a href="{$plugin}/deposit?submission={$item["id"]}" class="">
-                                                                        {translate key="plugins.importexport.crossref.redeposit"}
+                                                                        {translate key="plugins.importexport.crossrefOmp.redeposit"}
                                                                     </a>                                                           
                                                                 </button>
                                                                 {/if} 

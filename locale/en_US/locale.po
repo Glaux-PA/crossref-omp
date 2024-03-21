@@ -12,83 +12,83 @@ msgstr ""
 "Language: \n"
 
 
-msgid "plugins.importexport.crossref.displayName"
+msgid "plugins.importexport.crossrefOmp.displayName"
 msgstr "Crossref XML Plugin"
 
-msgid "plugins.importexport.crossref.description"
+msgid "plugins.importexport.crossrefOmp.description"
 msgstr "Deposite submissions in OMP's crossref XML format."
 
-msgid "plugins.importexport.crossref.deposited"
+msgid "plugins.importexport.crossrefOmp.deposited"
 msgstr "Deposited"
 
-msgid "plugins.importexport.crossref.depositedSubmissions"
+msgid "plugins.importexport.crossrefOmp.depositedSubmissions"
 msgstr "Deposited submissions"
 
-msgid "plugins.importexport.crossref.deposit"
+msgid "plugins.importexport.crossrefOmp.deposit"
 msgstr "Deposit"
 
-msgid "plugins.importexport.crossref.export"
+msgid "plugins.importexport.crossrefOmp.export"
 msgstr "Export"
 
-msgid "plugins.importexport.crossref.error"
+msgid "plugins.importexport.crossrefOmp.error"
 msgstr "Error"
 
-msgid "plugins.importexport.crossref.queued"
+msgid "plugins.importexport.crossrefOmp.queued"
 msgstr "To Deposit"
 
-msgid "plugins.importexport.crossref.redeposit"
+msgid "plugins.importexport.crossrefOmp.redeposit"
 msgstr "Deposit Again"
 
-msgid "plugins.importexport.crossref.submittedSubmissions"
+msgid "plugins.importexport.crossrefOmp.submittedSubmissions"
 msgstr "Select monographs to export"
 
-msgid "plugins.importexport.crossref.results"
+msgid "plugins.importexport.crossrefOmp.results"
 msgstr "Results"
 
-msgid "plugins.importexport.crossref.settings.description"
+msgid "plugins.importexport.crossrefOmp.settings.description"
 msgstr "Description"
 
-msgid "plugins.importexport.crossref.intro"
+msgid "plugins.importexport.crossrefOmp.intro"
 msgstr "This plugin registers DOIs for monographs and chapters  for DOI provider <a href='https://crossref.org'>Crossref.org</a>."
 
-msgid "plugins.importexport.crossref.settings"
+msgid "plugins.importexport.crossrefOmp.settings"
 msgstr "Settings"
 
-msgid "plugins.importexport.crossref.settings.form.password"
+msgid "plugins.importexport.crossrefOmp.settings.form.password"
 msgstr "Password"
 
-msgid "plugins.importexport.crossref.settings.form.password.description"
+msgid "plugins.importexport.crossrefOmp.settings.form.password.description"
 msgstr ""
 
-msgid "plugins.importexport.crossref.settings.form.username"
+msgid "plugins.importexport.crossrefOmp.settings.form.username"
 msgstr "Crossref username"
 
-msgid "plugins.importexport.crossref.settings.form.usernameRequired"
+msgid "plugins.importexport.crossrefOmp.settings.form.usernameRequired"
 msgstr "Please enter the username you got from Crossref."
 
-msgid "plugins.importexport.crossref.settings.form.testMode.description"
+msgid "plugins.importexport.crossrefOmp.settings.form.testMode.description"
 msgstr "Use the Crossref test API for DOI registration. Please do not forget to remove this option for the production."
 
-msgid "plugins.importexport.crossref.senderTask.name"
+msgid "plugins.importexport.crossrefOmp.senderTask.name"
 msgstr "Crossref automatic registration task"
 
-msgid "plugins.importexport.crossref.register.error.mdsError"
+msgid "plugins.importexport.crossrefOmp.register.error.mdsError"
 msgstr "Registration was not fully successful! The DOI registration server returned an error."
 
-msgid "plugins.importexport.crossref.register.success"
+msgid "plugins.importexport.crossrefOmp.register.success"
 msgstr "Registration was successful!"
 
-msgid "plugins.importexport.crossref.chapterDoiCount"
+msgid "plugins.importexport.crossrefOmp.chapterDoiCount"
 msgstr "Chapter DOIs"
 
-msgid "plugins.importexport.crossref.notice.noIsbn"
+msgid "plugins.importexport.crossrefOmp.notice.noIsbn"
 msgstr "Note! No ISBN available. Crossref export will use 'noisbn' selection."
 
-msgid "plugins.importexport.crossref.displayName"
+msgid "plugins.importexport.crossrefOmp.displayName"
 msgstr "Crossref XML Plugin"
 
-msgid "plugins.importexport.crossref.monographsOrChapter"
+msgid "plugins.importexport.crossrefOmp.monographsOrChapter"
 msgstr "Monographs / Chapters"
 
-msgid "plugins.importexport.crossref.cliUsage"
+msgid "plugins.importexport.crossrefOmp.cliUsage"
 msgstr "<![CDATA[Usage: {$scriptName} {$pluginName} export [outputFileName] [journal_path] {issues|articles|galleys} objectId1 [objectId2] ... {$scriptName} {$pluginName} register [journal_path] {issues|articles|galleys} objectId1 [objectId2] ...]]>"

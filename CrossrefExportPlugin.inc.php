@@ -1,7 +1,7 @@
 <?php
 import('lib.pkp.classes.plugins.ImportExportPlugin');
 import('lib.pkp.classes.submission.PKPSubmission');
-import('plugins.importexport.crossref.CrossrefExportDeployment');
+import('plugins.importexport.crossrefOmp.CrossrefExportDeployment');
 
 define('CROSSREF_API_DEPOSIT_OK', 200);
 define('CROSSREF_STATUS_FAILED', 'failed');
@@ -136,7 +136,7 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 				}
 			}
 			if ($noIsbn){
-				$notices[] = __('plugins.importexport.crossref.notice.noIsbn');
+				$notices[] = __('plugins.importexport.crossrefOmp.notice.noIsbn');
 			}
 
 			if ($failedMsg) {
@@ -144,17 +144,17 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 			}
 
 			if (!$username && !$password) {
-				 $errors[] = __('plugins.importexport.crossref.error.noUserCrecentials');
+				 $errors[] = __('plugins.importexport.crossrefOmp.error.noUserCrecentials');
 			}
 
 			if (!$context->getData('publisher')) {
-				 $errors[] = __('plugins.importexport.crossref.error.noPublisher');
+				 $errors[] = __('plugins.importexport.crossrefOmp.error.noPublisher');
 			}
 
 			$seriesDao = DAORegistry::getDAO('SeriesDAO'); /* @var $seriesDao SeriesDAO */
 			if ($series = $seriesDao->getById($publication->getData('seriesId'))){
 				if (!$series->getOnlineISSN() && !$series->getPrintISSN()) {
-					$notices[] = __('plugins.importexport.crossref.error.noIssn');
+					$notices[] = __('plugins.importexport.crossrefOmp.error.noIssn');
 				}
 			}
 
@@ -272,7 +272,7 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 					$returnMessage = $eResponseBody . ' (' .$eStatusCode . ' ' . $e->getResponse()->getReasonPhrase() . ')';
 				}
 			}
-			return [['plugins.importexport.crossref.register.error.mdsError'], [$returnMessage]];
+			return [['plugins.importexport.crossrefOmp.register.error.mdsError'], [$returnMessage]];
 		}
 
 		// Get DOMDocument from the response XML string
@@ -297,7 +297,7 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 			$warningCountNode = $xmlDoc->getElementsByTagName('warning_count')->item(0);
 			$warningCount = (int) $warningCountNode->nodeValue;
 			if ($warningCount > 0) {
-				$result = array(array('plugins.importexport.crossref.register.success.warning', htmlspecialchars($response->getBody())));
+				$result = array(array('plugins.importexport.crossrefOmp.register.success.warning', htmlspecialchars($response->getBody())));
 			}
 			// A possibility for other plugins (e.g. reference linking) to work with the response
 			HookRegistry::call('crossrefexportplugin::deposited', array($this, $response->getBody(), $submission));
@@ -356,14 +356,14 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 		if (!$result) {
 			$this->_sendNotification(
 				$request->getUser(),
-				'plugins.importexport.crossref.register.error.mdsError',
+				'plugins.importexport.crossrefOmp.register.error.mdsError',
 				NOTIFICATION_TYPE_ERROR
 			);
 		} else {
 			if (!is_array($result)) {
 				$this->_sendNotification(
 					$request->getUser(),
-					'plugins.importexport.crossref.register.success',
+					'plugins.importexport.crossrefOmp.register.success',
 					NOTIFICATION_TYPE_SUCCESS
 				);
 			} else {
@@ -415,11 +415,11 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 	}
 
 	function getDescription() {
-		return __('plugins.importexport.crossref.description');
+		return __('plugins.importexport.crossrefOmp.description');
 	}
 
 	function getDisplayName() {
-		return __('plugins.importexport.crossref.displayName');
+		return __('plugins.importexport.crossrefOmp.displayName');
 	}
 
 	function getPluginSettingsPrefix() {
