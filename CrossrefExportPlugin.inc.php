@@ -5,7 +5,7 @@ import('plugins.importexport.crossrefOmp.CrossrefExportDeployment');
 
 define('CROSSREF_API_DEPOSIT_OK', 200);
 define('CROSSREF_STATUS_FAILED', 'failed');
-#define('CROSSREF_API_URL', 'https://api.crossref.org/v2/deposits');
+define('CROSSREF_API_DEPOSIT_ERROR_FROM_CROSSREF', 403);
 define('CROSSREF_API_URL', 'https://test.crossref.org/v2/deposits');
 define('CROSSREF_API_URL_DEV', 'https://test.crossref.org/v2/deposits');
 define('EXPORT_STATUS_REGISTERED', 'registered');
@@ -63,9 +63,27 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 		$templateMgr->assign('username', $username);
 		$password = $this->getSetting($press->getId(), 'password');
 		$templateMgr->assign('password', $password);
+		$depositorName = $this->getSetting($press->getId(), 'depositorName');
+		$templateMgr->assign('depositorName', $depositorName);
+		$depositorEmail = $this->getSetting($press->getId(), 'depositorEmail');
+		$templateMgr->assign('depositorEmail', $depositorEmail);
 		$testMode = $this->getSetting($press->getId(), 'testMode');
 		$templateMgr->assign('testMode', $testMode);
-		return array($press, $username, $password, $testMode);
+		return array($press, $username, $password, $depositorName, $depositorEmail, $testMode);
+	}
+
+	function getDepositorName(){
+		$request = Application::get()->getRequest();
+		$press = $request->getPress();
+		$depositorName = $this->getSetting($press->getId(), 'depositorName');
+		return $depositorName;
+	}
+
+	function getDepositorEmail(){
+		$request = Application::get()->getRequest();
+		$press = $request->getPress();
+		$depositorEmail = $this->getSetting($press->getId(), 'depositorEmail');
+		return $depositorEmail;
 	}
 
 	function updateSettings($request) {
@@ -74,6 +92,8 @@ class CrossrefExportPlugin extends ImportExportPlugin {
 		if (count($userVars) > 0) {
 			$this->updateSetting($contextId, "username", $userVars["username"]);
 			$this->updateSetting($contextId, "password", $userVars["password"]);
+			$this->updateSetting($contextId, "depositorName", $userVars["depositorName"]);
+			$this->updateSetting($contextId, "depositorEmail", $userVars["depositorEmail"]);
 			$this->updateSetting($contextId, "testMode", $userVars["testMode"]);
 		}
 	}

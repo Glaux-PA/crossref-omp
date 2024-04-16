@@ -21,6 +21,7 @@ define('CROSSREF_XML_ROOT_ELEMENT' , 'doi_batch');
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 import('lib.pkp.classes.plugins.importexport.PKPImportExportDeployment');
+import('plugins.importexport.crossrefOmp.CrossrefExportPlugin');
 
 class CrossrefExportDeployment extends PKPImportExportDeployment {
 
@@ -104,8 +105,9 @@ class CrossrefExportDeployment extends PKPImportExportDeployment {
 		$headNode->appendChild($node = $documentNode->createElementNS($this->getNamespace(), 'doi_batch_id', $this->xmlEscape($press->getData('initials', $press->getPrimaryLocale()) . '_' .  $timestamp)));
 		$headNode->appendChild($node = $documentNode->createElementNS($this->getNamespace(), 'timestamp', $timestamp));
 		$depositorNode = $documentNode->createElementNS($this->getNamespace(), 'depositor');
-		$depositorName = $press->getData('supportName');
-		$depositorEmail = $press->getData('supportEmail');
+		$crossrefExportPlugin = new CrossrefExportPlugin();
+		$depositorName = $crossrefExportPlugin->getDepositorName();
+		$depositorEmail = $crossrefExportPlugin->getDepositorEmail();
 		$depositorNode->appendChild($node = $documentNode->createElementNS($this->getNamespace(), 'depositor_name', $this->xmlEscape($depositorName)));
 		$depositorNode->appendChild($node = $documentNode->createElementNS($this->getNamespace(), 'email_address', $this->xmlEscape($depositorEmail)));
 		$headNode->appendChild($depositorNode);

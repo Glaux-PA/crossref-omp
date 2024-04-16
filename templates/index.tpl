@@ -35,11 +35,13 @@
                 {fbvFormArea id="crossrefSettingsFormArea"}
                     <p class="pkp_help">{translate key="plugins.importexport.crossrefOmp.settings.description"}</p>
                     <p class="pkp_help">{translate key="plugins.importexport.crossrefOmp.intro"}</p>
-                {fbvFormSection}
-                {fbvElement type="text" id="username" value=$username label="plugins.importexport.crossrefOmp.settings.form.username" maxlength="50" size=$fbvStyles.size.MEDIUM}
-                {fbvElement type="text" password="true" id="password" value=$password label="plugins.importexport.crossrefOmp.settings.form.password" maxLength="50" size=$fbvStyles.size.MEDIUM}
-                    <span class="instruct">{translate key="plugins.importexport.crossrefOmp.settings.form.password.description"}</span>
-                    <br/>
+                {fbvFormSection title="plugins.importexport.crossrefOmp.settings.form.depositorSettings"}
+                    {fbvElement type="text" id="depositorName" value=$depositorName label="plugins.importexport.crossrefOmp.settings.form.depositorName" maxlength="100" size=$fbvStyles.size.MEDIUM}
+                    {fbvElement type="text" id="depositorEmail" value=$depositorEmail label="plugins.importexport.crossrefOmp.settings.form.depositorEmail" maxlength="300" size=$fbvStyles.size.MEDIUM}
+                {/fbvFormSection}
+                {fbvFormSection title="plugins.importexport.crossrefOmp.settings.form.crossrefSettings"}
+                    {fbvElement type="text" id="username" value=$username label="plugins.importexport.crossrefOmp.settings.form.username" maxlength="50" size=$fbvStyles.size.MEDIUM}
+                    {fbvElement type="text" password="true" id="password" value=$password label="plugins.importexport.crossrefOmp.settings.form.password" maxLength="50" size=$fbvStyles.size.MEDIUM}
                 {/fbvFormSection}
                 {fbvFormSection list="true"}
                 {fbvElement type="checkbox" id="testMode" label="plugins.importexport.crossrefOmp.settings.form.testMode.description" checked=$testMode|compare:true}
