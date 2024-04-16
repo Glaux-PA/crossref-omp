@@ -5,11 +5,11 @@ Para OMP 3.3.0
 
 ### Cambios/Mejoras:
 * Traducciones a Español y Catalán(pendiente de revisión)
-* Fix para manejar la respues de error de la API en versiones actuales de php
+* Fix para manejar la respuesta de error de la API en versiones actuales de php
 * Nombre y email de depositario en los ajustes del propio módulo
 * Documentación sobre los requisitos previos para el correcto funcionamiento y manejo de errores comunes
 
-### Pendiente/Mejoras:
+### Pendiente:
 * Listado de depositos -> unificar la lista y mostrar más información acerca del estado
 * Posibilidad de envío automático
 
